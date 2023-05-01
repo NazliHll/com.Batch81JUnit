@@ -14,6 +14,7 @@ public class C01_MavenIlkClass {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
         driver.get("https://www.amazon.com");
+        driver.close();
 
     }
 }
