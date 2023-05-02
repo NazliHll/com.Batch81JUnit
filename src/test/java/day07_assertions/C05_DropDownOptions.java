@@ -2,6 +2,7 @@ package day07_assertions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
+import java.util.List;
 
 public class C05_DropDownOptions {
     /*
@@ -46,6 +48,13 @@ public class C05_DropDownOptions {
 
        ///2-Dropdowndaki options'ların sayısının 28 olduğunu test edelim
         // select.getOptions();list döndürür--> WebElementlerden oluşan bir liste yapalım
+
+        List<WebElement> optionList=select.getOptions();
+
+        int actualOptionSayisi=optionList.size();
+        int expectedOptionSayisi=28;
+
+        Assert.assertEquals(expectedOptionSayisi,actualOptionSayisi);
 
 
         /*
