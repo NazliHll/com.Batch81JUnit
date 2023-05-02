@@ -8,16 +8,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 public class C01_BeforeClass_AfterClass {
-    WebDriver driver;
+    static WebDriver driver;
     @BeforeClass
-    public void setup(){
+    public static void setup(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
     @AfterClass
-    public void tearDown(){
+    public static void tearDown(){
+
         driver.close();
     }
     @Test
@@ -26,10 +27,12 @@ public class C01_BeforeClass_AfterClass {
     }
     @Test
     public void test02(){
+
         driver.get("https://www.instagram.com");
     }
     @Test
     public void test03(){
+
         driver.get("https://www.facebook.com");
     }
 }
