@@ -52,7 +52,7 @@ public class C04_Assertions {
         /*
         Assert ile yaptığımız testlerde assertion failed olursa Java
         kodları çalışmayı durdurur ve Assert Classı bizi hata konusunda bilgilendirir.
-        **WARNING: Unable to find an exact match for CDP version 112, so returning the closest version found: 111
+
         org.junit.ComparisonFailure: Url beklenenden farklı :
         Expected :https://facebook.com
         Actual   :https://www.amazon.com/
