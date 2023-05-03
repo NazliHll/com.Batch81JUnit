@@ -45,7 +45,12 @@ public class C01_Assertions {
         String actualTitle= driver.getTitle();
         Assert.assertFalse(actualTitle.contains(istenmeyenKelime));
     }
+    @Test
+    public void test03(){
+        WebElement logo=driver.findElement(By.id("nav-logo-sprites"));
+        Assert.assertTrue(logo.isDisplayed());
 
+    }
 
 
 }
