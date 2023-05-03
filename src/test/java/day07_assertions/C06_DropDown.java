@@ -74,11 +74,7 @@ public class C06_DropDown {
         list.stream().forEach(t-> System.out.println(t.getText())); // LAMBDA ile
          */
 
-        //vı.Dropdown'un boyutunu bulun, Dropdown'da 4 öğe varsa konsolda True, degilse False yazdırın.
-        int dropDownBoyut=tumOptions.size();
-        if (dropDownBoyut==4){
-            System.out.println("True");
-        }else System.out.println("False");
+
 
 
 
