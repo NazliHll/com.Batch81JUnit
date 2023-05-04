@@ -57,4 +57,40 @@ public class C02_Alerts {
         Assert.assertEquals(expectedResultMessage, actualResultMessage);
     }
 
+    @Test
+    public void dismissAlertTest() {
+        /*
+         -bir method oluşturun :dismissAlert
+         2.butona tıklayın, yukarıdaki Cancel butonuna tıklayın ve result mesajının
+         "successfully" içermediğini test edin.
+         */
+
+        driver.findElement(By.xpath("//button[@onclick='jsConfirm()'][1]")).click();
+        driver.switchTo().alert().dismiss();
+        String unExpectedResultMessage = "successfully";
+        String actualDissMessage = driver.findElement(By.xpath("//p[@id='result']")).getText();
+        Assert.assertNotEquals(unExpectedResultMessage, actualDissMessage);
+
+    }
+
+    @Test
+    public void sendKeysAlertTest() {
+
+        /*
+         -bir method oluşturun :sendKeysAlert
+         3.butona tıklayın ve yukarıdaki metin kutusuna isminizi yazın, OK butonuna
+          tıklayın ve result mesajında isminizin görüntülendiğini doğrulayın.
+         */
+
+        driver.findElement(By.xpath("//button[@onclick='jsPrompt()'][1]")).click();
+        driver.switchTo().alert().sendKeys("nazli yasar");
+        driver.switchTo().alert().accept();
+        String expectedResultMessageIsim = "nazli yasar";
+        String actualResultMessageIsim = driver.findElement(By.xpath("//p[@id='result']")).getText();
+        Assert.assertTrue(actualResultMessageIsim.contains(expectedResultMessageIsim));
+
+
+    }
 }
+
+
