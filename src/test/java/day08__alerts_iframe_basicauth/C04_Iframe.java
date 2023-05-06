@@ -50,5 +50,15 @@ public class C04_Iframe {
         textKutusu.clear();
         textKutusu.sendKeys("Merhaba Dünya");
 
+        //*Text Box'ın altında bulunan "Elemental Selenium" linkinin textinin görünür olduğunu doğrulayın ve konsolda yazdırın
+        //Link yazı elementini doğru olmasına ragmen yazdırmadı, çünkü yukarıda ifram'e geçis yapmıştık
+        // bu durumda önce iframe i locate edip switchTo ile o iframe e geçmeliyiz.
+        driver.switchTo().defaultContent();
+
+
+        WebElement linkYazi=driver.findElement(By.linkText("Elemental Selenium"));
+        Assert.assertTrue(linkYazi.isDisplayed());
+        System.out.println(linkYazi.getText());
+
     }
 }
