@@ -4,8 +4,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import java.time.Duration;
 
@@ -20,21 +24,26 @@ public class C01_handleWindows {
     }
     @After
     public void tearDown(){
-        driver.quit();
+       // driver.quit();
     }
     @Test
     public void test01(){
         driver.get("https://www.amazon.com");
-        System.out.println(driver.getWindowHandle());
+        String ilkSayfaHandleDegeri = driver.getWindowHandle();
          /*
-        736BDF8004415AE2D76DAB9226777825 bu kod açılan sayfanın unique hash kodudur.
+       BE8073589DB381F0A21AB696BCFD96A6 bu kod açılan sayfanın unique hash kodudur.
         Selenium sayfalar arası geçişte bu handle değerini kullanır.
         Eğer sayfalar arasında driverımızı gezdiriyorsak veya herhangi bir sayfadan
         şuanda bulunduğumuz sayfaya geçmek istiyorsak
-        driver.switchTo().window("736BDF8004415AE2D76DAB9226777825");
+        driver.switchTo().window("BE8073589DB381F0A21AB696BCFD96A6");
         bu sayfanın window handle değerini girerek bu sayfaya geçiş yapabiliriz.
          */
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Nutella"+ Keys.ENTER);
 
-        driver.switchTo().window()
+        WebElement ilElementFoto=driver.findElement(By.xpath("(//img[@class='s-image'])[1]"));
+        ilElementFoto.click();
+
+
+
     }
 }
