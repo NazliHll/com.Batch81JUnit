@@ -5,6 +5,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -39,14 +41,20 @@ public class C02_handleWindows {
     public void test1() {
         //1-amazona gidin.
         driver.get("https://amazon.com");
+        String ilkSayfaHandle=driver.getWindowHandle();
         String istenenKelime="amazon";
         String actualUrl=driver.getCurrentUrl();
         Assert.assertTrue(actualUrl.contains(istenenKelime));
         driver.switchTo().newWindow(WindowType.WINDOW);
         driver.get("https://bestbuy.com");
+        String ikinciSayfaHandle=driver.getWindowHandle();
         String actualTitle= driver.getTitle();
         String arananKelime="Best Buy";
         Assert.assertTrue(actualTitle.contains(arananKelime));
+
+        driver.switchTo().window(ilkSayfaHandle);
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java"+ Keys.ENTER);
+
 
 
     }
