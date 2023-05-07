@@ -74,17 +74,30 @@ public class C03_windowHandle {
 
         Set<String> windowHandleSeti=driver.getWindowHandles();
         System.out.println(windowHandleSeti);
+        String ikinciSayfaWindowHandleDegeri="";
 
         for (String each:windowHandleSeti
              ) {
-            if (each.equals(ilkSayfaWindowHandleDegeri)){
-                String ikinciSayfaWindowHandleDegeri=each;
+            if (!each.equals(ilkSayfaWindowHandleDegeri)){
+                ikinciSayfaWindowHandleDegeri=each;
             }
         }
+        driver.switchTo().window(ikinciSayfaWindowHandleDegeri);
 
         String expectedIkinciTitle="New Window";
         String actualIkinciTitle= driver.getTitle();
         Assert.assertEquals(expectedIkinciTitle,actualIkinciTitle);
+
+        WebElement ikinciSayfaYazi=driver.findElement(By.xpath("//h3"));
+        String expectedIkinciYazi="New Window";
+        String actualIkinciYazi=ikinciSayfaYazi.getText();
+        Assert.assertEquals(expectedIkinciYazi,actualIkinciYazi);
+
+        driver.switchTo().window(ilkSayfaWindowHandleDegeri);
+         expectedTitle="The Internet";
+         actualTtitle=driver.getTitle();
+
+         Assert.assertEquals(expectedTitle,actualTtitle);
 
     }
 }
