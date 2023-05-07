@@ -5,10 +5,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
@@ -35,7 +32,7 @@ public class C02_handleWindows {
     }
     @After
     public void tearDown() {
-       // driver.quit();
+       driver.quit();
     }
     @Test
     public void test1() {
@@ -54,8 +51,22 @@ public class C02_handleWindows {
 
         driver.switchTo().window(ilkSayfaHandle);
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java"+ Keys.ENTER);
+        // 6.arama sonuçlarının java içerdiğini test edelim.
+        WebElement sonucYaziElement = driver.findElement(By.xpath("//div[@class='a-section a-spacing-small a-spacing-top-small']"));
+        String sonuc = sonucYaziElement.getText();
+        String aradigimizKelime = "Java";
+        Assert.assertTrue(sonuc.contains(aradigimizKelime));
+
+        //7.yeniden bestbuy'ın açık olduğu sayfaya gidelim.
+        driver.switchTo().window(ikinciSayfaHandle);
+
+        // 8.logonun göründüğünü test edelim.
+        WebElement logoElement = driver.findElement(By.xpath("(//img[@class='logo'])[1]"));
+        Assert.assertTrue(logoElement.isDisplayed());
+
+    }
 
 
 
     }
-}
+
