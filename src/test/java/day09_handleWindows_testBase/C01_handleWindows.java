@@ -4,10 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
@@ -24,7 +21,7 @@ public class C01_handleWindows {
     }
     @After
     public void tearDown(){
-       // driver.quit();
+       driver.quit();
     }
     @Test
     public void test01(){
@@ -41,7 +38,24 @@ public class C01_handleWindows {
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Nutella"+ Keys.ENTER);
 
         WebElement ilElementFoto=driver.findElement(By.xpath("(//img[@class='s-image'])[1]"));
-        ilElementFoto.click();
+
+        driver.switchTo().newWindow(WindowType.TAB);
+        System.out.println("driver'in urlsi"+ driver.getCurrentUrl());
+
+         /*
+        Bu komutu kullandığımızda driver otomatik olarak oluşturulannew Tab a tıklar
+        yeni Tab'da görevi gerçekleştirmek için adımları baştan almamız gerekir.
+         */
+        driver.get("https://www.amazon.com");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Nutella"+ Keys.ENTER);
+        driver.findElement(By.xpath("(//img[@class='s-image'])[1]")).click();
+
+        WebElement urunTitle= driver.findElement(By.xpath("//span[@id='productTitle']"));
+        System.out.println(urunTitle.getText());
+
+        driver.switchTo().window(ilkSayfaHandleDegeri);
+        System.out.println(driver.getCurrentUrl());
+
 
 
 
