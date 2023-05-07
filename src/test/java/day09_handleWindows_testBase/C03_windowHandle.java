@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
+import java.util.Set;
 
 public class C03_windowHandle {
      /*
@@ -55,6 +56,9 @@ public class C03_windowHandle {
         String actualTtitle=driver.getTitle();
         Assert.assertEquals(expectedTitle,actualTtitle);
 
+        String ilkSayfaHandle= driver.getWindowHandle();
+        System.out.println(ilkSayfaHandle);
+
         driver.findElement(By.linkText("Click Here")).click();
 
         /*
@@ -67,6 +71,17 @@ public class C03_windowHandle {
         ilk sayfanın window handle değerini zaten biliyoruz. Set'deki window handle değerlerini kontrol edip
         ilk sayfanın handle değerine eşit  olmayan ikinci sayfanın window handle değeridir.
          */
+
+        Set<String> windowHandleSeti=driver.getWindowHandles();
+        System.out.println(windowHandleSeti);
+
+        for (String each:windowHandleSeti
+             ) {
+            if (each.equals(ilkSayfaWindowHandleDegeri)){
+                String ikinciSayfaWindowHandleDegeri=each;
+            }
+        }
+
         String expectedIkinciTitle="New Window";
         String actualIkinciTitle= driver.getTitle();
         Assert.assertEquals(expectedIkinciTitle,actualIkinciTitle);
