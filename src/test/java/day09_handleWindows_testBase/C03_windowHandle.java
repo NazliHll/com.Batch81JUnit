@@ -36,7 +36,7 @@ public class C03_windowHandle {
 
     @After
     public void tearDown() {
-        driver.quit();
+      //  driver.quit();
     }
 
     @Test
@@ -50,6 +50,26 @@ public class C03_windowHandle {
         String expectedYazi = "Opening a new window";
         String actualYazi = sayfadakiYaziElementi.getText();
         Assert.assertEquals(expectedYazi, actualYazi);
+
+        String expectedTitle="The Internet";
+        String actualTtitle=driver.getTitle();
+        Assert.assertEquals(expectedTitle,actualTtitle);
+
+        driver.findElement(By.linkText("Click Here")).click();
+
+        /*
+        switchTo().newWndow() demeden link tıklayarak yeni tab veya window oluştuğunda biz driver a
+        yeni sayfaya geç demedikçe eski sayfada kalır ve yeni sayf ile ilgili hiç bir işlem yapmaz.
+        Yeni sayfada  driver'ı çalıştırmak isterseniz önce driverı yeni sayfaya yollamalısınız.
+        Yeni sayfaya geçebilmek için öncelikle ikinciSayfaWindowHandleDeğeri'ni bulmamız gerekir.
+        Bunun için driver.getWindowHandles() methodunu kullanarak açık olan tüm sayfaların window handle değerlerini
+        alıp bir sete assign ederiz.
+        ilk sayfanın window handle değerini zaten biliyoruz. Set'deki window handle değerlerini kontrol edip
+        ilk sayfanın handle değerine eşit  olmayan ikinci sayfanın window handle değeridir.
+         */
+        String expectedIkinciTitle="New Window";
+        String actualIkinciTitle= driver.getTitle();
+        Assert.assertEquals(expectedIkinciTitle,actualIkinciTitle);
 
     }
 }
