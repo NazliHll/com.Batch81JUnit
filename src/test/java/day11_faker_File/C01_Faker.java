@@ -38,7 +38,7 @@ public class C01_Faker extends TestBase {
                 .sendKeys("1998")
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
-                .sendKeys(Keys.RIGHT)
+                .sendKeys(Keys.LEFT)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
