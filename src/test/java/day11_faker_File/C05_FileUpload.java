@@ -1,5 +1,6 @@
 package day11_faker_File;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -32,7 +33,16 @@ public class C05_FileUpload extends TestBase {
         String yuklenecekDosya=farkliKisim+ortakKisim;
         dosyaSec.sendKeys(yuklenecekDosya);
 
+        driver.findElement(By.className("button")).click();
+
+
+        // -"File Uploaded!" textinin görüntülendiğini test edelim.
+        WebElement yaziElementi = driver.findElement(By.tagName("h3"));
+        Assert.assertTrue(yaziElementi.isDisplayed());
+
+
         Thread.sleep(5000);
+
     }
 
 }
