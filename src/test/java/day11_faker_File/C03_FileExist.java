@@ -1,6 +1,10 @@
 package day11_faker_File;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class C03_FileExist {
     @Test
@@ -25,8 +29,20 @@ public class C03_FileExist {
         Testlerimizn tüm bilgisayarlarda çalışması için dosya yolunu dinamik yapmak zorundayız.
 
         Bunun için
-            her bilgisayarın birbirinden farklı olan yolunu bulmak adına
+            her bilgisayarın birbirinden farklı olan yolunu bulmak için
 
          */
+        String farkliKisim = System.getProperty("user.home");
+
+        // herkesin bilgisayarında ortak olan kısım ise
+        String ortakKisim = "\\OneDrive\\Masaüstü\\text.txt";
+
+        String masaustuDosyaYolu = farkliKisim + ortakKisim;
+
+        System.out.println(Files.exists(Paths.get(masaustuDosyaYolu)));
+
+        Assert.assertTrue(Files.exists(Paths.get(masaustuDosyaYolu)));
+
+
     }
 }
