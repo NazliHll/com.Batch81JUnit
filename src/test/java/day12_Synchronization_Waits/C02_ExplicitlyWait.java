@@ -5,5 +5,8 @@ public class C02_ExplicitlyWait {
     bir method olusturun:isEnabled()
     https://the-internet.herokuapp.com/dynamic_controls adresine gidin
     Textbox'in etkin olmadigini(enabled) dogrulayin
+    Enable butonuna tiklayin ve textbox etkin oluncaya kadar bekleyin
+    "It's enabled!" mesajinin goruntulendigini dogrulayin
+    TextBox'in etkin oldugunu(enabled)dogrulayin
      */
 }
