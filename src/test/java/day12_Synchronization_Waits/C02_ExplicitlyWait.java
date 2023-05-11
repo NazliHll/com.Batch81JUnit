@@ -32,9 +32,5 @@ public class C02_ExplicitlyWait extends TestBase {
         WebElement itsEnable= driver.findElement(By.xpath("//p[text()=\"It's enabled!\"]"));
         Assert.assertTrue(itsEnable.isDisplayed());
         Assert.assertTrue(enableKutusu.isEnabled());
-
-
-
-
     }
 }
