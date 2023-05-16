@@ -35,9 +35,12 @@ public class C06_ReadExcel {
                     +", "
                     +workbook.getSheet("Sayfa1").getRow(i).getCell(3).toString();
             ulkelerMap.put(key,value);
+            System.out.println(key+ " , "+value);
 
         }
         System.out.println(ulkelerMap);
+
+        //
 
 
     }
