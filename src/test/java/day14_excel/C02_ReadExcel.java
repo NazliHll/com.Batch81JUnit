@@ -26,6 +26,7 @@ public class C02_ReadExcel {
                           getSheet("Sayfa1").
                           getRow(3).
                           getCell(3).toString();
+        System.out.println(actualData);
 
 
     }
