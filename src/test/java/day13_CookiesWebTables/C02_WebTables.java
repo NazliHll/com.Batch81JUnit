@@ -53,7 +53,11 @@ public class C02_WebTables extends TestBase {
                 emailSutunNo=i;
             }
         }
-        List<WebElement>emailSutun=driver.findElements(By.xpath("//tbody//td["+(emailSutunNo+1)+"]"));
+        List<WebElement>emailSutun=driver.findElements(By.xpath("//tbody//td["+(emailSutunNo+1)+" ]"));
+        for (WebElement each:emailSutun
+             ) {
+            System.out.println(each.getText());
+        }
         
 
     }
