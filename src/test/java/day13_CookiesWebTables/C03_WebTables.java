@@ -17,11 +17,11 @@ public class C03_WebTables extends TestBase {
         //input olarak verilen satir sayisi ve sutun sayisina sahip
         //celldeki texti yazdirin
 
-        int satir = 3;
-        int sutun = 5;
+        int satir = 4;
+        int sutun = 4;
         girisYap();
 
-        WebElement arananCell=driver.findElement(By.xpath("//tbody//tr[3]//td[5]"));
+        WebElement arananCell=driver.findElement(By.xpath("//tbody//tr["+satir+"]//td["+sutun+"]"));
         System.out.println(arananCell.getText());
 
 
